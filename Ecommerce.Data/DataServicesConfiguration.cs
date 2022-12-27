@@ -50,17 +50,10 @@ namespace Ecommerce.Data
             
             services.AddTransient<IConnectionFactory, ConnectionFactory>();
             services.AddTransient<IBlockRepository, BlockRepository>();
-            
-            //services.AddTransient<IUserRepository, UserRepository>();
-            //services.AddTransient<IBlockRepository, BlockRepository>();
-            //services.AddTransient<ISlotRepository, SlotRepository>();
-            //services.AddTransient<IGeneralRepository, GeneralRepository>();
-            ////services.AddTransient<IParkingRuleRepository, ParkingRuleRepository>();
-            ////services.AddTransient<IParkingTypeRepository, ParkingTypeRepository>();
-            //services.AddTransient<IParkingManagementRepository, ParkingManagementRepository>();
-            //services.AddTransient<IBookingRepository, BookingRepository>();
-            //services.AddTransient<ISettingRepository, SettingRepository>();
-
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IVendorRepository, VendorRepository>();
+            services.AddTransient<ICartRepository, CartRepository>();
 
 
         }

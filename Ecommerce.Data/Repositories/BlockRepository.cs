@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ecommerce.Data.Entities;
+using Ecommerce.Data.Utilities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Ecommerce.Data.Repositories
 {
-
     public interface IBlockRepository
     {
         Task<Block> Insert(Block block);
@@ -20,13 +20,15 @@ namespace Ecommerce.Data.Repositories
     internal class BlockRepository : IBlockRepository
     {
         private readonly AppDbContext _appDbContext;
-
+            
         public BlockRepository(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;
         }
         public async Task<Block> Insert(Block block)
         {
+
+            block.CreatedDate= GeneralUtility.GetCurrentNepaliDateTime();
             await _appDbContext.AddAsync(block);
             await _appDbContext.SaveChangesAsync();
             return block;
@@ -60,8 +62,6 @@ namespace Ecommerce.Data.Repositories
             
             _appDbContext.Blocks.Remove(blockToDelete);
             await _appDbContext.SaveChangesAsync();
-
-
         }
     }
 }

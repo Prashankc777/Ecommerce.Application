@@ -5,11 +5,6 @@ namespace Ecommerce.Data.Entities
 {
     public partial class Block
     {
-        public Block()
-        {
-            Slots = new HashSet<Slot>();
-        }
-
         public int Id { get; set; }
         public string Name { get; set; } = null!;
         public string? Alias { get; set; }
@@ -18,7 +13,5 @@ namespace Ecommerce.Data.Entities
         public DateTime CreatedDate { get; set; }
         public string? ModifiedBy { get; set; }
         public DateTime? ModifiedDate { get; set; }
-
-        public virtual ICollection<Slot> Slots { get; set; }
     }
 }

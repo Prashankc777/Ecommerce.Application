@@ -31,7 +31,6 @@ namespace Ecommerce.Application.Controllers
                 var insertedBlock = await _blockRepository.Insert(ObjectMapper.Mapper.Map<Block>(blockDto));
                 return Ok($"The Block {insertedBlock.Name} has been added");
 
-
             }
             catch (Exception e)
             {
@@ -99,7 +98,6 @@ namespace Ecommerce.Application.Controllers
                 BlockDto blockDto = ObjectMapper.Mapper.Map<BlockDto>(await _blockRepository.GetById(id));
                 return Ok(blockDto);
 
-
             }
             catch (Exception e)
             {
@@ -107,8 +105,5 @@ namespace Ecommerce.Application.Controllers
                 return BadRequest(e.Message);
             }
         }
-
-
-
     }
 }
